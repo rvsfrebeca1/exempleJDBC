@@ -1,0 +1,10 @@
+jdbc:
+  username: postgres
+  password: postgres
+  initSql: 'SELECT 1'
+  rw:
+    url: jdbc:postgresql://localhost:5432/bancoteste
+    maxPoolSize: 5
+    maxLifetimeInMinutes: 10
+    leakDetectionThresholdInMilliseconds: 2000
+    connectionTimeoutInMilliseconds: 1000
