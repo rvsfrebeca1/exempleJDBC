@@ -22,16 +22,16 @@ public class MessageWriteRepository {
     }
 
     public Message persist(final Message message) {
-        final String id = UUID.randomUUID().toString();
-        final Map<String, String> parameters = Map.of(
+        final UUID id = UUID.randomUUID();
+        final Map<String, ?> parameters = Map.of(
                 "id", id,
                 "name", message.getName(),
-                "idade", message.getIdade().toString());
+                "idade", message.getIdade());
 
-        final int updated = this.jdbcTemplate.update(INSERT_SQL,parameters);
+        final int updated = this.jdbcTemplate.update(INSERT_SQL, parameters);
 
         if (updated > 0) {
-            message.setId(UUID.fromString(id));
+            message.setId(id.toString());
         }
 
         return message;

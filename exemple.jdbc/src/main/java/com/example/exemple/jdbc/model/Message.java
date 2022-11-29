@@ -10,7 +10,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 public class Message {
-    private UUID id;
+    private String id;
     private String name;
     private Integer idade;
 }
